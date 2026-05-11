@@ -1,0 +1,6 @@
+model_settings:
+  primary_model: "mimo-v2.5-pro"
+  context_window: 1000000
+  temperature: 0.2
+auth:
+  api_key: "YOUR_ORBIT_TOKEN_HERE"
