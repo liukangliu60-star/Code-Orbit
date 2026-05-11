@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+.env
+configs/mimo_config.yaml  # 保护隐私，不把含有 key 的配置文件传上去
