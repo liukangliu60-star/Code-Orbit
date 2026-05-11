@@ -1,5 +1,5 @@
 import asyncio
-from agent_core import CodeOrbitAgent
+from core.agent_core import CodeOrbitAgent
 
 async def run_demo():
     # 这里的 API Key 在申请通过前可以先留空，或填入 "PENDING_ORBIT_KEY"
