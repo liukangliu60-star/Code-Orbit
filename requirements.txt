@@ -1,4 +1,0 @@
-mimo-sdk>=2.5.0
-asyncio
-pyyaml
-aiohttp
