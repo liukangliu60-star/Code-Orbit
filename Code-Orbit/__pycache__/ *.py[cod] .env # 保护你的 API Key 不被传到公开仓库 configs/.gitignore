@@ -1,5 +1,0 @@
-__pycache__/
-*.py[cod]
-.env
-# 保护你的 API Key 不被传到公开仓库
-configs/mimo_config.yaml
