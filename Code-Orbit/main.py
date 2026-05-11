@@ -1,20 +1,28 @@
 import asyncio
+import sys
 from core.agent_core import CodeOrbitAgent
 
-async def run_demo():
-    # 这里的 API Key 在申请通过前可以先留空，或填入 "PENDING_ORBIT_KEY"
-    api_key = "PENDING_ORBIT_KEY"
-    agent = CodeOrbitAgent(api_key=api_key)
+async def main():
+    print("🚀 Code-Orbit 智能体启动中...")
     
-    print("--- Code-Orbit 启动成功 ---")
-    print("状态: 正在等待 MiMo-V2.5-Pro 算力注入...")
+    # 1. 初始化 Agent
+    agent = CodeOrbitAgent()
     
-    # 模拟一个简单的指令，展示逻辑已跑通
-    print("测试指令: 分析当前代码结构并给出优化建议")
-    # 此处逻辑会自动调用 agent_core.py 中的方法
+    # 2. 自动读取当前项目作为上下文（展示超长上下文处理能力）
+    await agent.ingest_repository(".")
     
+    # 3. 模拟执行一个研发任务
+    task = "分析当前项目的 core/agent_core.py，建议如何增加对 MiMo 视觉模态接口的支持。"
+    
+    print(f"\n💬 正在处理任务: {task}")
+    result = await agent.execute_task(task)
+    
+    print("\n--- MiMo 返回结果 ---")
+    print(result)
+    print("\n✅ 演示运行结束。")
+
 if __name__ == "__main__":
     try:
-        asyncio.run(run_demo())
+        asyncio.run(main())
     except KeyboardInterrupt:
-        print("\n程序已手动停止。")
+        sys.exit(0)
